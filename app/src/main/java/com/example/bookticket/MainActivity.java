@@ -9,9 +9,9 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-    Button btnLogin;
-    Button btnCreateAccount;
-    TextView txtViewLogin;
+    private Button btnLogin;
+    private Button btnCreateAccount;
+    private TextView txtViewLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

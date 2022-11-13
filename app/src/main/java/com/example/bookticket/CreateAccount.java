@@ -7,8 +7,8 @@ import android.view.View;
 import android.widget.Button;
 
 public class CreateAccount extends AppCompatActivity {
-    Button btnRegister;
-    Button btnCancelReg;
+    private Button btnRegister;
+    private Button btnCancelReg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
