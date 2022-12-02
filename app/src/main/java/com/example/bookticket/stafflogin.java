@@ -30,7 +30,7 @@ public class stafflogin extends AppCompatActivity {
         Intent switchActivityIntentStaff;
         switch (next_activity) {
             case 1:
-                switchActivityIntentStaff = new Intent(this, HomeScreen.class);
+                switchActivityIntentStaff = new Intent(this, StaffHome.class);
                 break;
             default:    return;
         }
