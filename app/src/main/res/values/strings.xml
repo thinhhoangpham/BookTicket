@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">BookTicket</string>
+    <string name="staffwelcome">Welcome Employees. Please sign in and get to work</string>
 </resources>

@@ -11,13 +11,13 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
     private Button btnLogin;
     private Button btnCreateAccount;
+    private Button btnStaffLogin;
     private TextView txtViewLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         //Code from learntodroid.com
         btnLogin = findViewById(R.id.btnLogin);
         btnLogin.setOnClickListener(new View.OnClickListener() {
@@ -40,6 +40,14 @@ public class MainActivity extends AppCompatActivity {
                 switch_activities(2);
             }
         });
+
+        btnStaffLogin = findViewById(R.id.btnStaffLogin);
+        btnStaffLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                switch_activities(3);
+            }
+        });
     }
 
     //Based on code from learntodroid.com
@@ -50,6 +58,8 @@ public class MainActivity extends AppCompatActivity {
             case 1:     switchActivityIntent = new Intent(this, HomeScreen.class);
                         break;
             case 2:     switchActivityIntent = new Intent(this, CreateAccount.class);
+                        break;
+            case 3:    switchActivityIntent = new Intent(this, stafflogin.class);
                         break;
             default:    return;
         }

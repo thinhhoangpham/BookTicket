@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".stafflogin">
 
     <TextView
-        android:id="@+id/txtViewLogin"
+        android:id="@+id/txtViewLoginStaff"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Welcome to the Movie Booking System!\nPlease sign in below or create an account."
+        android:text="Welcome Staff. Login and and get to work."
         android:textSize="18sp"
         android:layout_margin="80dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTxtUsername"
+        android:id="@+id/editTxtstaffIDNum"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="60dp"
@@ -30,10 +30,11 @@
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtViewLogin" />
+        app:layout_constraintTop_toBottomOf="@+id/txtViewLoginStaff"
+        android:autofillHints="" />
 
     <EditText
-        android:id="@+id/editTxtPassword"
+        android:id="@+id/editTxtPasswordstaff"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="40dp"
@@ -45,43 +46,19 @@
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTxtUsername" />
+        app:layout_constraintTop_toBottomOf="@+id/editTxtstaffIDNum"
+        android:autofillHints="" />
 
     <Button
-        android:id="@+id/btnLogin"
+        android:id="@+id/btnLoginStaff"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="100dp"
-        android:layout_marginTop="108dp"
-        android:text="Login"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTxtPassword" />
-
-    <Button
-        android:id="@+id/btnCreateAccount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:layout_marginTop="20dp"
-        android:text="Create Account"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.632"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
-
-    <Button
-        android:id="@+id/btnStaffLogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
         android:text="Staff Login"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.258"
-        app:layout_constraintStart_toEndOf="@+id/btnLogin"
-        app:layout_constraintTop_toBottomOf="@+id/editTxtPassword" />
-
+        app:layout_constraintHorizontal_bias="0.565"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTxtPasswordstaff" />
 </androidx.constraintlayout.widget.ConstraintLayout>
