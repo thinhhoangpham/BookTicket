@@ -29,6 +29,13 @@
                 android:value="" />
         </activity>
         <activity
+            android:name=".PaymentScreen"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".StaffHome"
             android:exported="false">
             <meta-data
