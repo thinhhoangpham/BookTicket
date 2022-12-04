@@ -7,6 +7,8 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.bookticket.models.Movie;
+
 public class StaffHome extends AppCompatActivity {
     private Button btnEditMoviePrices;
     private Button btnEditMovieCatalog;
@@ -47,12 +49,13 @@ public class StaffHome extends AppCompatActivity {
 
         switch(next_activity) {
             case 1:
-                switchActivityIntent = new Intent(this, MovieCatalog.class);
+                switchActivityIntent = new Intent(this, EditPrice.class);
                 break;
             case 2:
                 switchActivityIntent = new Intent(this, CreateAccount.class);
                 break;
-            case 3:    switchActivityIntent = new Intent(this, stafflogin.class);
+            case 3:
+                switchActivityIntent = new Intent(this, MovieCatalog.class);
                 break;
             default:    return;
         }
