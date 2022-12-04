@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">BookTicket</string>
     <string name="staffwelcome">Welcome Employees. Please sign in and get to work</string>
+
+    <string name="back4app_server_url">https://parseapi.back4app.com/</string>
+
+    <!-- Paste BOTH strings as required -->
+    <string name="back4app_app_id">y97Y6tESdh6S8HPh7sH2xhhSbRs9OHMiY6E0bIlV</string>
+    <string name="back4app_client_key">JahNuZQ7hY2RmBHghO6ZilGnrlSSr0sF096P0lhE</string>
 </resources>

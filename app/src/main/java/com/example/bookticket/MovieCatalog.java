@@ -1,80 +1,70 @@
 package com.example.bookticket;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
-import android.view.View;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
-import android.widget.TextView;
+import android.util.Log;
+
+import com.codepath.asynchttpclient.AsyncHttpClient;
+import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler;
+import com.example.bookticket.adapters.MovieAdapter;
+import com.example.bookticket.models.Movie;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import okhttp3.Headers;
 
 public class MovieCatalog extends AppCompatActivity {
-    private RecyclerView recViewMovieCatalog;
+    public static final String NOW_PLAYING_URL = "https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed";
+    public static final String TAG = "MovieCatalog";
+
+    List<Movie> movies;
+    //private RecyclerView recViewMovieCatalog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movie_catalog);
+        RecyclerView recViewMovieCatalog = findViewById(R.id.recViewMovieCatalog);
+        movies = new ArrayList<>();
 
-        recViewMovieCatalog = findViewById(R.id.recViewMovieCatalog);
-
-        ArrayList<String> film_names = new ArrayList<String>();
-
-        //TODO: Fetch names of currently showing films from the database and add to film_names
-        //These names are just examples
-        film_names.add("Movie1");
-        film_names.add("Movie2");
-        film_names.add("Movie3");
-
-        RecViewMovieCatalogAdapter catalog_adapter = new RecViewMovieCatalogAdapter();
-        catalog_adapter.set_film_names(film_names);
-
-        recViewMovieCatalog.setAdapter(catalog_adapter);
+        // Create adapter
+        MovieAdapter movieAdapter = new MovieAdapter(this, movies);
+        // set adapter on RV
+        recViewMovieCatalog.setAdapter(movieAdapter);
+        // set layout manager on RV
         recViewMovieCatalog.setLayoutManager(new LinearLayoutManager(this));
+
+        AsyncHttpClient client = new AsyncHttpClient();
+        client.get(NOW_PLAYING_URL, new JsonHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Headers headers, JSON json) {
+                Log.d(TAG, "onSuccess");
+                JSONObject jsonObject = json.jsonObject;
+                try {
+                    JSONArray results = jsonObject.getJSONArray("results");
+                    Log.i(TAG, "Result: " + results.toString());
+                    movies.addAll(Movie.fromJSONArray(results));
+                    movieAdapter.notifyDataSetChanged();
+                    Log.i(TAG, "Movies: " + movies.size());
+                } catch (JSONException e) {
+                    Log.e(TAG, "Hit json exception", e);
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onFailure(int statusCode, Headers headers, String response, Throwable throwable) {
+                Log.d(TAG, "onFailure");
+            }
+        });
     }
 }
 
-//Based on code from the YouTube channel freeCodeCamp.org
-class RecViewMovieCatalogAdapter extends RecyclerView.Adapter<RecViewMovieCatalogAdapter.ViewHolder> {
-    private ArrayList<String> film_names = new ArrayList<String>();
-
-    public RecViewMovieCatalogAdapter() {
-    }
-
-    @NonNull
-    @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.movie_catalog_item, parent, false);
-        ViewHolder vh = new ViewHolder(v);
-        return vh;
-    }
-
-    @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.txtViewNameOfFilm.setText(film_names.get(position));
-    }
-
-    @Override
-    public int getItemCount() {
-        return film_names.size();
-    }
-
-    public void set_film_names(ArrayList<String> film_names) {
-        this.film_names = film_names;
-        notifyDataSetChanged();
-    }
-
-    public class ViewHolder extends RecyclerView.ViewHolder {
-        private TextView txtViewNameOfFilm;
-
-        public ViewHolder(@NonNull View itemView) {
-            super(itemView);
-            txtViewNameOfFilm = itemView.findViewById(R.id.txtViewNameOfFilm);
-        }
-    }
-}

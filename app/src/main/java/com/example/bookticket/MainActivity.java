@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         Intent switchActivityIntent;
 
         switch(next_activity) {
-            case 1:     switchActivityIntent = new Intent(this, HomeScreen.class);
+            case 1:     switchActivityIntent = new Intent(this, MovieCatalog.class);
                         break;
             case 2:     switchActivityIntent = new Intent(this, CreateAccount.class);
                         break;
