@@ -20,7 +20,6 @@ public class EditPrice extends AppCompatActivity {
     TextView currentprice;
 
 
-    //TextView textPrice;
 
    // @SuppressLint("MissingInflatedId")
     @SuppressLint("MissingInflatedId")
@@ -30,8 +29,8 @@ public class EditPrice extends AppCompatActivity {
         setContentView(R.layout.activity_edit_price);
         Price =7;
 
-        currentprice = findViewById(R.id.currentprice);
-        currentprice.setText(Price);
+        //currentprice = findViewById(R.id.currentprice);
+        //currentprice.setText(Price);
         editTextPrice = (EditText) findViewById(R.id.editTextPrice);
         editTextPrice.setInputType(InputType.TYPE_CLASS_NUMBER);
         backbtn = findViewById(R.id.backbtn);
