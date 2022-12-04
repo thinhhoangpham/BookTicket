@@ -1,0 +1,59 @@
+{
+	"providers": {
+		"awscloudformation": {
+			"AuthRoleName": "amplify-bookticketaws1-devt-163551-authRole",
+			"UnauthRoleArn": "arn:aws:iam::899917780591:role/amplify-bookticketaws1-devt-163551-unauthRole",
+			"AuthRoleArn": "arn:aws:iam::899917780591:role/amplify-bookticketaws1-devt-163551-authRole",
+			"Region": "us-east-2",
+			"DeploymentBucketName": "amplify-bookticketaws1-devt-163551-deployment",
+			"UnauthRoleName": "amplify-bookticketaws1-devt-163551-unauthRole",
+			"StackName": "amplify-bookticketaws1-devt-163551",
+			"StackId": "arn:aws:cloudformation:us-east-2:899917780591:stack/amplify-bookticketaws1-devt-163551/bbd55c60-7291-11ed-98f5-0afabc4eea82"
+		}
+	},
+	"storage": {
+		"dynamoBookTicket1": {
+			"service": "DynamoDB",
+			"providerPlugin": "awscloudformation"
+		}
+	},
+	"function": {
+		"BookTicketAWS2": {
+			"service": "Lambda",
+			"providerPlugin": "awscloudformation",
+			"build": true,
+			"dependsOn": [
+				{
+					"category": "storage",
+					"resourceName": "dynamoBookTicket1",
+					"attributes": [
+						"Name",
+						"Arn"
+					]
+				}
+			]
+		}
+	},
+	"auth": {
+		"cognitobb2058e2": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation"
+		}
+	},
+	"api": {
+		"BookTicketAPI2": {
+			"service": "API Gateway",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": [
+				{
+					"category": "function",
+					"resourceName": "BookTicketAWS2",
+					"attributes": [
+						"Name",
+						"Arn"
+					]
+				}
+			]
+		}
+	}
+}

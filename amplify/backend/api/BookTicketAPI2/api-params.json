@@ -1,0 +1,48 @@
+{
+  "paths": [
+    {
+      "name": "/items",
+      "lambdaFunction": "BookTicketAWS2",
+      "privacy": {
+        "protected": true,
+        "auth": [
+          "/POST",
+          "/GET",
+          "/PUT",
+          "/PATCH",
+          "/DELETE"
+        ],
+        "unauth": [
+          "/POST",
+          "/GET",
+          "/PUT",
+          "/PATCH",
+          "/DELETE"
+        ]
+      }
+    }
+  ],
+  "resourceName": "BookTicketAPI2",
+  "apiName": "BookTicketAPI2",
+  "functionArns": [
+    {
+      "lambdaFunction": "BookTicketAWS2"
+    }
+  ],
+  "privacy": {
+    "auth": 1,
+    "unauth": 1,
+    "authRoleName": "amplify-bookticketaws1-devt-163551-authRole",
+    "unAuthRoleName": "amplify-bookticketaws1-devt-163551-unauthRole"
+  },
+  "dependsOn": [
+    {
+      "category": "function",
+      "resourceName": "BookTicketAWS2",
+      "attributes": [
+        "Name",
+        "Arn"
+      ]
+    }
+  ]
+}

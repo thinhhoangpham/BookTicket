@@ -1,0 +1,5 @@
+{
+"tableName": "dynamoBookTicket1",
+"partitionKeyName": "column1",
+"partitionKeyType": "N"
+}

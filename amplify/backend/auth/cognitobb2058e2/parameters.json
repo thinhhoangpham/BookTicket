@@ -1,0 +1,47 @@
+{
+  "identityPoolName": "bookticket_aws1_identitypool_90358f38",
+  "allowUnauthenticatedIdentities": true,
+  "resourceNameTruncated": "bookti90358f38",
+  "userPoolName": "bookticket_aws1_userpool_90358f38",
+  "autoVerifiedAttributes": [
+    "email"
+  ],
+  "mfaConfiguration": "OFF",
+  "mfaTypes": [
+    "SMS Text Message"
+  ],
+  "smsAuthenticationMessage": "Your authentication code is {####}",
+  "smsVerificationMessage": "Your verification code is {####}",
+  "emailVerificationSubject": "Your verification code",
+  "emailVerificationMessage": "Your verification code is {####}",
+  "defaultPasswordPolicy": false,
+  "passwordPolicyMinLength": 8,
+  "passwordPolicyCharacters": [],
+  "requiredAttributes": [
+    "email"
+  ],
+  "userpoolClientGenerateSecret": true,
+  "userpoolClientRefreshTokenValidity": 30,
+  "userpoolClientWriteAttributes": [
+    "email"
+  ],
+  "userpoolClientReadAttributes": [
+    "email"
+  ],
+  "userpoolClientLambdaRole": "bookti90358f38_userpoolclient_lambda_role",
+  "userpoolClientSetAttributes": false,
+  "authSelections": "identityPoolAndUserPool",
+  "resourceName": "cognitobb2058e2",
+  "authRoleArn": {
+    "Fn::GetAtt": [
+      "AuthRole",
+      "Arn"
+    ]
+  },
+  "unauthRoleArn": {
+    "Fn::GetAtt": [
+      "UnauthRole",
+      "Arn"
+    ]
+  }
+}

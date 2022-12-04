@@ -1,0 +1,20 @@
+{
+    "UserAgent": "aws-amplify-cli/0.1.0",
+    "Version": "0.1.0",
+    "IdentityManager": {
+        "Default": {}
+    },
+
+    "api": {
+        "plugins": {
+            "aswAPIPlugin": {
+                "BookTicketAPI1": {
+                    "endpointType": "REST",
+                    "endpoint": "https://p3nc36pfqk.execute-api.us-east-2.amazonaws.com/dev",
+                    "region": "us-east-2",
+                    "authorizationType": "AWS_IAM"
+                }
+            }
+        }
+    }
+}
