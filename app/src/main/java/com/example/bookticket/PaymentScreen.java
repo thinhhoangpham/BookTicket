@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import org.parceler.Parcels;
+
 public class PaymentScreen extends AppCompatActivity {
     private Button buttonContinuePayment;
     private Button buttonCancelPayment;
@@ -35,6 +37,11 @@ public class PaymentScreen extends AppCompatActivity {
                 finish();
             }
         });
+
+
+        String time = Parcels.unwrap(getIntent().getParcelableExtra("time"));
+        buttonCancelPayment.setText(time);
+
     }
 
     private void switch_activities() {
