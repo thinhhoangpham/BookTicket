@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import org.parceler.Parcels;
@@ -13,11 +14,20 @@ import org.parceler.Parcels;
 public class PaymentScreen extends AppCompatActivity {
     private Button buttonContinuePayment;
     private Button buttonCancelPayment;
+    String text,text2,text3,text4,text5;
+   // TextView textView;
+    EditText inputFirstName,inputLastName,inputCardNum,inputCardExMon,inputExYear;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment_screen);
+
+        inputFirstName = findViewById(R.id.editTextPaymentFirstName);
+        inputLastName = findViewById(R.id.editTextPaymentLastName);
+        inputCardNum = findViewById(R.id.CardNumber);
+        inputCardExMon = findViewById(R.id.editExpirationMonth);
+        inputExYear = findViewById(R.id.editExpirationYear);
 
         //Code from learntodroid.com
         buttonContinuePayment = findViewById(R.id.buttonContinuePayment);
@@ -26,6 +36,19 @@ public class PaymentScreen extends AppCompatActivity {
             public void onClick(View v) {
                 //TODO: update the database with the info and credentials entered by the user
                 switch_activities();
+                Intent i = new Intent(PaymentScreen.this,PaymentConfirmation.class);
+                text = inputFirstName.getText().toString();
+                i.putExtra("Value",text);
+                text2 = inputLastName.getText().toString();
+                i.putExtra("Value1",text2);
+                text3 = inputCardNum.getText().toString();
+                i.putExtra("Value2",text3);
+                text4 = inputCardExMon.getText().toString();
+                i.putExtra("Value3",text4);
+                text5 = inputExYear.getText().toString();
+                i.putExtra("Value4",text5);
+
+                startActivity(i);
                 finish();
             }
         });
@@ -43,7 +66,6 @@ public class PaymentScreen extends AppCompatActivity {
 
     private void switch_activities() {
         Intent switchActivityIntent;
-        //only switching to catalog to make sure button works haven't implemented a payment confirmation page yet
         switchActivityIntent = new Intent(this, PaymentConfirmation.class);
         startActivity(switchActivityIntent);
     }

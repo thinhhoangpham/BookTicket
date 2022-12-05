@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.example.bookticket.models.Movie;
 
@@ -14,10 +15,37 @@ public class PaymentConfirmation extends AppCompatActivity {
     private Button buttonConfirmationBtn;
     private Button buttonCancelBtn;
 
+    TextView tv,tv1,tv2,tv3,tv4;
+    String st,st1,st2,st3,st4;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment_confirmation);
+        //display users card infor for confirming
+        // 1st Name
+        tv = findViewById(R.id.textView5);
+        st = getIntent().getExtras().getString("Value",st);
+        tv.setText(st);
+        //2nd name
+        tv1 = findViewById(R.id.textView6);
+        st1 = getIntent().getExtras().getString("Value1",st1);
+        tv1.setText(st1);
+        //card info
+        tv2 = findViewById(R.id.textView7);
+        st2 = getIntent().getExtras().getString("Value2",st2);
+        tv2.setText(st2);
+        //expire month
+        tv3 = findViewById(R.id.textView8);
+        st3 = getIntent().getExtras().getString("Value3",st3);
+        tv3.setText(st3);
+        //expire year
+        tv4 = findViewById(R.id.textView9);
+        st4 = getIntent().getExtras().getString("Value4",st4);
+        tv4.setText(st4);
+
+
 
         buttonConfirmationBtn = findViewById(R.id.buttonConfirmationBtn);
         buttonConfirmationBtn.setOnClickListener(new View.OnClickListener() {
