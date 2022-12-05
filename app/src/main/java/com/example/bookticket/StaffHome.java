@@ -47,7 +47,7 @@ public class StaffHome extends AppCompatActivity {
 
         switch(next_activity) {
             case 1:
-                switchActivityIntent = new Intent(this, MovieCatalog.class);
+                switchActivityIntent = new Intent(this, EditPrice.class);
                 break;
             case 2:
                 switchActivityIntent = new Intent(this, CreateAccount.class);
