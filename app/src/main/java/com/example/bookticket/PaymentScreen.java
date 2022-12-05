@@ -39,15 +39,12 @@ public class PaymentScreen extends AppCompatActivity {
         });
 
 
-        String time = Parcels.unwrap(getIntent().getParcelableExtra("time"));
-        buttonCancelPayment.setText(time);
-
     }
 
     private void switch_activities() {
         Intent switchActivityIntent;
         //only switching to catalog to make sure button works haven't implemented a payment confirmation page yet
-        switchActivityIntent = new Intent(this, MovieCatalog.class);
+        switchActivityIntent = new Intent(this, PaymentConfirmation.class);
         startActivity(switchActivityIntent);
     }
 }
