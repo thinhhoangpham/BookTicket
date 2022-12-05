@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<<<<<<< Updated upstream
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-=======
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
->>>>>>> Stashed changes
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -12,20 +8,9 @@
 
     <TextView
         android:id="@+id/textView"
-<<<<<<< Updated upstream
         android:layout_width="317dp"
         android:layout_height="66dp"
         android:layout_marginTop="24dp"
-=======
-        android:layout_width="348dp"
-        android:layout_height="81dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="23dp"
-        android:layout_marginTop="33dp"
-        android:layout_marginEnd="40dp"
->>>>>>> Stashed changes
         android:text="Edit Movie Prices"
         android:textSize="40sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -34,16 +19,9 @@
 
     <TextView
         android:id="@+id/textView3"
-<<<<<<< Updated upstream
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="136dp"
-=======
-        android:layout_width="400dp"
-        android:layout_height="99dp"
-        android:layout_below="@+id/textView"
-        android:layout_marginTop="63dp"
->>>>>>> Stashed changes
         android:text="What would you like the new movie price be?"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -53,29 +31,15 @@
 
     <EditText
         android:id="@+id/editTextPrice"
-<<<<<<< Updated upstream
         android:layout_width="281dp"
         android:layout_height="59dp"
         android:ems="10"
-=======
-        android:layout_width="278dp"
-        android:layout_height="103dp"
-        android:layout_below="@+id/textView3"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginTop="84dp"
-        android:layout_marginEnd="78dp"
-        android:layout_marginBottom="268dp"
-        android:ems="10"
-        android:hint="Input dollar amount"
->>>>>>> Stashed changes
         android:inputType="number"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.623"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3"
-<<<<<<< Updated upstream
         app:layout_constraintVertical_bias="0.099" />
 
     <Button
@@ -83,23 +47,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
-=======
-        app:layout_constraintVertical_bias="0.4" />
-
-    <Button
-        android:id="@+id/btnSubmitPrice"
-        android:layout_width="142dp"
-        android:layout_height="81dp"
-        android:layout_below="@+id/textView3"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="123dp"
-        android:layout_marginTop="294dp"
-        android:layout_marginEnd="18dp"
-        android:layout_marginBottom="80dp"
-        android:layout_toEndOf="@+id/backbtn"
-        android:minHeight="48dp"
->>>>>>> Stashed changes
         android:text="Submit"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -108,7 +55,6 @@
 
     <Button
         android:id="@+id/backbtn"
-<<<<<<< Updated upstream
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -135,22 +81,3 @@
         app:layout_constraintVertical_bias="0.446" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-=======
-        android:layout_width="124dp"
-        android:layout_height="89dp"
-        android:layout_below="@+id/textView3"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="294dp"
-        android:layout_marginBottom="72dp"
-        android:minHeight="48dp"
-        android:text="Cancel"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextPrice"
-        app:layout_constraintVertical_bias="1.0"
-        tools:ignore="MissingConstraints" />
-
-
-</RelativeLayout>
->>>>>>> Stashed changes

@@ -13,7 +13,7 @@ public class StaffHome extends AppCompatActivity {
     private Button btnEditMoviePrices;
     private Button btnEditMovieCatalog;
     private Button btnEditAccounts;
-    public int Price;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
