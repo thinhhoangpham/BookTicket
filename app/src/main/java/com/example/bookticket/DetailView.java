@@ -70,6 +70,7 @@ public class DetailView extends YouTubeBaseActivity implements AdapterView.OnIte
             }
         });
 
+        //For number of tickets  selection
         Spinner spinner = findViewById(R.id.ticketSelection);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,R.array.tickets,android.R.layout.simple_spinner_dropdown_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
