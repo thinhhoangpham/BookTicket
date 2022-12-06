@@ -137,10 +137,7 @@ public class DetailView extends YouTubeBaseActivity implements AdapterView.OnIte
     }
     private void switch_activities() {
         Intent switchActivityIntent;
-
         switchActivityIntent = new Intent(this, PaymentScreen.class);
-        //line below - temp checking to see if "time" is being passed
-       // switchActivityIntent.putExtra("time", Parcels.wrap("6:00pm"));
         startActivity(switchActivityIntent);
     }
 

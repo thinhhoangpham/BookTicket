@@ -14,7 +14,7 @@ import org.parceler.Parcels;
 public class PaymentScreen extends AppCompatActivity {
     private Button buttonContinuePayment;
     private Button buttonCancelPayment;
-    String text,text2,text3,text4,text5;
+    String text,text2,text3,text4,text5, text6;
    // TextView textView;
     EditText inputFirstName,inputLastName,inputCardNum,inputCardExMon,inputExYear;
 
@@ -35,7 +35,7 @@ public class PaymentScreen extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //TODO: update the database with the info and credentials entered by the user
-                switch_activities();
+
                 Intent i = new Intent(PaymentScreen.this,PaymentConfirmation.class);
                 text = inputFirstName.getText().toString();
                 i.putExtra("Value",text);
@@ -47,9 +47,10 @@ public class PaymentScreen extends AppCompatActivity {
                 i.putExtra("Value3",text4);
                 text5 = inputExYear.getText().toString();
                 i.putExtra("Value4",text5);
-
                 startActivity(i);
-                finish();
+
+                switch_activities();
+                //finish();
             }
         });
 

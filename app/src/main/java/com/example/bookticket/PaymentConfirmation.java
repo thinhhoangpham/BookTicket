@@ -45,7 +45,7 @@ public class PaymentConfirmation extends AppCompatActivity {
         st4 = getIntent().getExtras().getString("Value4",st4);
         tv4.setText(st4);
 
-        time = findViewById(R.id.DisplayTimeInfo);
+        time = findViewById(R.id.DisplayTicketInfo);
         st_time = getIntent().getExtras().getString("Time1",st_time);
         time.setText(st_time);
 
@@ -57,6 +57,7 @@ public class PaymentConfirmation extends AppCompatActivity {
             public void onClick(View v) {
                 //TODO: update the database with the info and credentials entered by the user
                 //switch_activities();
+                //will need to create a unique ticket number
                 finish();
             }
         });
