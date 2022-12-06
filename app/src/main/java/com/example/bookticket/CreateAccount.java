@@ -54,7 +54,7 @@ public class CreateAccount extends AppCompatActivity {
         user.setUsername(username);
         user.setPassword(password);
 
-        user.signUpInBackground(new SignUpCallBack() {
+        user.signUpInBackground(new SignUpCallback() {
             @Override
             public void done(ParseException e) {
                 if (e != null)
