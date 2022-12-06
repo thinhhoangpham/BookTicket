@@ -39,6 +39,9 @@ public class Movie {
         return movies;
     }
 
+    public static void setPosterPath() {
+    }
+
     public String getPosterPath() {
         return String.format("https://image.tmdb.org/t/p/w342/%s", posterPath);
     }
@@ -54,4 +57,8 @@ public class Movie {
     public float getRating() {return  rating;}
 
     public int getMovieId() {return movieId;}
+
+    public void setPosterPath(String posterPath) {
+        this.posterPath = posterPath;
+    }
 }

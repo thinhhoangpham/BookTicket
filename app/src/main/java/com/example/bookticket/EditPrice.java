@@ -40,11 +40,11 @@ public class EditPrice extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-    Intent i = new Intent(EditPrice.this, PriceComfirm.class);
-    Price = editTextPrice.getText().toString();
+                Intent i = new Intent(EditPrice.this, PriceComfirm.class);
+                Price = editTextPrice.getText().toString();
                 i.putExtra("Price", Price);
-    startActivity(i);
-    finish();
+                startActivity(i);
+                finish();
 }
 
             });
