@@ -5,8 +5,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+
+import com.parse.ParseException;
+import com.parse.ParseUser;
+import com.parse.SignUpCallback;
 
 public class CreateAccount extends AppCompatActivity {
+    private EditText editTxtUsernameC;
+    private EditText editTxtPasswordC;
     private Button btnRegister;
     private Button btnCancelReg;
 
@@ -20,7 +27,7 @@ public class CreateAccount extends AppCompatActivity {
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO: update the database with the info and credentials entered by the user
+                register_user();
                 finish();
             }
         });
@@ -30,6 +37,28 @@ public class CreateAccount extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 finish();
+            }
+        });
+    }
+
+    private void register_user() {
+        ParseUser user = new ParseUser();
+
+        editTxtUsernameC = findViewById(R.id.editTxtUsernameC);
+        editTxtPasswordC = findViewById(R.id.editTxtUsernameC);
+
+        String username = editTxtUsernameC.getText().toString();
+        String password = editTxtPasswordC.getText().toString();
+
+        //Code from geeksforgeeks.com
+        user.setUsername(username);
+        user.setPassword(password);
+
+        user.signUpInBackground(new SignUpCallBack() {
+            @Override
+            public void done(ParseException e) {
+                if (e != null)
+                    ParseUser.logOut();
             }
         });
     }
