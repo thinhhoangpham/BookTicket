@@ -2,6 +2,7 @@ package com.example.bookticket.adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,20 +25,30 @@ import org.parceler.Parcels;
 import java.util.List;
 
 //Based on code from the YouTube channel freeCodeCamp.org
-public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> {
+public class MovieAdapterEdit extends RecyclerView.Adapter<MovieAdapterEdit.ViewHolder> {
 
     Context context;
     List<Movie> movies;
 
-    public MovieAdapter(Context context, List<Movie> movies) {
+    public MovieAdapterEdit(Context context, List<Movie> movies) {
         this.context = context;
+        this.movies = movies;
+
+        //Log.d("List size", "" + this.movies.size());
+
+    }
+
+    public List<Movie> getMovies() {
+        return movies;
+    }
+    public void setMovies(List<Movie> movies) {
         this.movies = movies;
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View movieView = LayoutInflater.from(context).inflate(R.layout.movie_catalog_item, parent, false);
+        View movieView = LayoutInflater.from(context).inflate(R.layout.movie_catalog_item_edit, parent, false);
         return new ViewHolder(movieView);
     }
 
@@ -61,6 +72,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
         TextView tvTitle;
         TextView tvOverview;
         ImageView ivPoster;
+        Button btnDelete;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -68,6 +80,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
             tvOverview = itemView.findViewById(R.id.tvOverview);
             ivPoster = itemView.findViewById(R.id.ivPoster);
             container = itemView.findViewById(R.id.container);
+            btnDelete = itemView.findViewById(R.id.btnDelete);
         }
 
         // 1. register click listener on whole row
@@ -85,6 +98,19 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
                     //i.putExtra("title", movie.getTitle());
                     i.putExtra("movie", Parcels.wrap(movie));
                     context.startActivity(i);
+                }
+
+
+
+            });
+            btnDelete.setOnClickListener(new View.OnClickListener()
+            {
+                @Override
+                public void onClick(View view) {
+                    movies.remove(movie);
+                    notifyDataSetChanged();
+                    Log.d("List size", "" + movies.size());
+
                 }
             });
         }
