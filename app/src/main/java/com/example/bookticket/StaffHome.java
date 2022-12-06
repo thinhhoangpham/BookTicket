@@ -10,8 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class StaffHome extends AppCompatActivity {
     private Button btnEditMoviePrices;
     private Button btnEditMovieCatalog;
-    private Button btnEditAccounts;
-
+    private Button btnEditAccountsHome;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,8 +31,8 @@ public class StaffHome extends AppCompatActivity {
                 switch_activities(2);
             }
         });
-        btnEditAccounts = findViewById(R.id.btnEditAccounts);
-        btnEditAccounts.setOnClickListener(new View.OnClickListener() {
+        btnEditAccountsHome = findViewById(R.id.btnEditAccountsHome);
+        btnEditAccountsHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 switch_activities(3);
@@ -50,9 +49,9 @@ public class StaffHome extends AppCompatActivity {
                 switchActivityIntent = new Intent(this, EditPrice.class);
                 break;
             case 2:
-                switchActivityIntent = new Intent(this, CreateAccount.class);
+                switchActivityIntent = new Intent(this, changeCatalog.class);
                 break;
-            case 3:    switchActivityIntent = new Intent(this, stafflogin.class);
+            case 3:    switchActivityIntent = new Intent(this, SelectAccount.class);
                 break;
             default:    return;
         }
