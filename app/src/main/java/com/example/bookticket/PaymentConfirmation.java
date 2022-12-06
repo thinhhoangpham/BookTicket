@@ -15,15 +15,15 @@ public class PaymentConfirmation extends AppCompatActivity {
     private Button buttonConfirmationBtn;
     private Button buttonCancelBtn;
 
-    TextView tv,tv1,tv2,tv3,tv4;
-    String st,st1,st2,st3,st4;
+    TextView tv,tv1,tv2,tv3,tv4, time;
+    String st,st1,st2,st3,st4, st_time;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment_confirmation);
-        //display users card infor for confirming
+        //display users card infor to confirm
         // 1st Name
         tv = findViewById(R.id.textView5);
         st = getIntent().getExtras().getString("Value",st);
@@ -44,6 +44,10 @@ public class PaymentConfirmation extends AppCompatActivity {
         tv4 = findViewById(R.id.textView9);
         st4 = getIntent().getExtras().getString("Value4",st4);
         tv4.setText(st4);
+
+        time = findViewById(R.id.DisplayTimeInfo);
+        st_time = getIntent().getExtras().getString("Time1",st_time);
+        time.setText(st_time);
 
 
 

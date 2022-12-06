@@ -35,12 +35,13 @@ import android.widget.Toast;
 
 public class DetailView extends YouTubeBaseActivity implements AdapterView.OnItemSelectedListener {
 
+
     private static final String YOUTUBE_API_KEY = "AIzaSyBQw3dqrjCEFSse_zPwXfNMHqoQjB9eVbo";
     public static final String VIDEOS_URL = "https://api.themoviedb.org/3/movie/%d/videos?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed";
     TextView tvTitle, tvOverview;
     RatingBar ratingBar;
     YouTubePlayerView youTubePlayerView;
-    private Button timeBtn1,timeBtn2,timeBtn3;
+    private Button timeBtn1,timeBtn2,timeBtn3,NextBtn;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -56,19 +57,13 @@ public class DetailView extends YouTubeBaseActivity implements AdapterView.OnIte
         timeBtn1 = findViewById(R.id.time1);
         timeBtn2 = findViewById(R.id.time2);
         timeBtn3 = findViewById(R.id.time3);
+        NextBtn = findViewById(R.id.NextButton);
 
+        //Movie Details
         Movie movie = Parcels.unwrap(getIntent().getParcelableExtra("movie"));
         tvTitle.setText(movie.getTitle());
         tvOverview.setText(movie.getOverview());
         ratingBar.setRating(movie.getRating());
-
-        timeBtn1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //TODO: update the database with the info and credentials entered by the user
-                switch_activities();
-            }
-        });
 
         //For number of tickets  selection
         Spinner spinner = findViewById(R.id.ticketSelection);
@@ -76,6 +71,26 @@ public class DetailView extends YouTubeBaseActivity implements AdapterView.OnIte
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(this);
+
+        Intent i = new Intent(DetailView.this,PaymentConfirmation.class);
+        //storing time from button
+        timeBtn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String buttonText = timeBtn1.getText().toString();
+                i.putExtra("Time1",buttonText);
+            }
+        });
+
+        NextBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //TODO: update the database with the info and credentials entered by the user
+                switch_activities();
+            }
+        });
+
+
 
 
         AsyncHttpClient client = new AsyncHttpClient();
