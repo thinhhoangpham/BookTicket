@@ -6,33 +6,46 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
+import com.parse.ParseUser;
+
 public class MainActivity extends AppCompatActivity {
+    private EditText editTxtUsername;
+    private EditText editTxtPassword;
     private Button btnLogin;
     private Button btnCreateAccount;
     private Button btnStaffLogin;
     private TextView txtViewLogin;
-    private Backend backend_aws;
+    //private Backend backend_aws;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        backend_aws = new Backend(getApplicationContext());
+        //backend_aws = new Backend(getApplicationContext());
+
+        editTxtUsername = findViewById(R.id.editTxtUsername);
+        editTxtPassword = findViewById(R.id.editTxtPassword);
 
         //Code from learntodroid.com
         btnLogin = findViewById(R.id.btnLogin);
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO: verify credentials before switching activities
-                //if (credentials are correct) {
-                    switch_activities(1);
-                /*} else {
-                    txtViewLogin = findViewById(R.id.txtViewLogin);
-                    txtViewLogin.setText("Incorrect Username or Password./nPlease login again.");
-                }*/
+                //Code form geeksforgeeks.com
+                String username = editTxtUsername.getText().toString();
+                String password = editTxtPassword.getText().toString();
+
+                ParseUser.logInInBackground(username, password, (parseUser, e) -> {
+                    if (parseUser != null) {
+                        switch_activities(1);
+                    } else {
+                        txtViewLogin = findViewById(R.id.txtViewLogin);
+                        txtViewLogin.setText("Incorrect Username or Password./nPlease login again.");
+                    }
+                });
             }
         });
 
