@@ -16,7 +16,7 @@ public class PaymentScreen extends AppCompatActivity {
     private Button buttonCancelPayment;
     String text,text2,text3,text4,text5, text6;
    // TextView textView;
-    EditText inputFirstName,inputLastName,inputCardNum,inputCardExMon,inputExYear;
+    EditText inputFirstName,inputLastName,inputCardNum,inputCardExMon,inputExYear,inputCVV;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +28,7 @@ public class PaymentScreen extends AppCompatActivity {
         inputCardNum = findViewById(R.id.CardNumber);
         inputCardExMon = findViewById(R.id.editExpirationMonth);
         inputExYear = findViewById(R.id.editExpirationYear);
+        inputCVV = findViewById(R.id.UserCVV);
 
         //Code from learntodroid.com
         buttonContinuePayment = findViewById(R.id.buttonContinuePayment);
@@ -47,6 +48,8 @@ public class PaymentScreen extends AppCompatActivity {
                 i.putExtra("Value3",text4);
                 text5 = inputExYear.getText().toString();
                 i.putExtra("Value4",text5);
+                text6 = inputCVV.getText().toString();
+                i.putExtra("Value5",text6);
                 startActivity(i);
 
                 switch_activities();

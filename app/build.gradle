@@ -42,6 +42,7 @@ dependencies {
 
     //Parse repository
     implementation 'com.github.parse-community.Parse-SDK-Android:parse:4.1.0'
+    implementation 'com.github.parse-community.Parse-SDK-Android:parse:1.25.0'
 
     //This is the AWS Amplify core dependency.
     implementation 'com.amplifyframework:core:2.0.0'

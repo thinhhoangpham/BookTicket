@@ -40,16 +40,16 @@ public class MainActivity extends AppCompatActivity {
                 String username = editTxtUsername.getText().toString();
                 String password = editTxtPassword.getText().toString();
 
-                ParseUser.logInInBackground(username, password, new LogInCallback() {
-                    public void done(ParseUser user, ParseException e) {
-                        if (user != null) {
-                            switch_activities(1);
-                        } else {
-                            txtViewLogin = findViewById(R.id.txtViewLogin);
-                            txtViewLogin.setText("Incorrect Username or Password./nPlease login again.");
-                        }
-                    }
-                });
+//                ParseUser.logInInBackground(username, password, new LogInCallback() {
+//                    public void done(ParseUser user, ParseException e) {
+//                        if (user != null) {
+//                            switch_activities(1);
+//                        } else {
+//                            txtViewLogin = findViewById(R.id.txtViewLogin);
+//                            txtViewLogin.setText("Incorrect Username or Password./nPlease login again.");
+//                        }
+//                    }
+//                });
 
                 /*
                 ParseUser.logInInBackground(username, password, (parseUser, e) -> {
@@ -61,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
                  */
+                switch_activities(1);
             }
         });
 

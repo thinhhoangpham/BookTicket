@@ -71,14 +71,25 @@ public class DetailView extends YouTubeBaseActivity implements AdapterView.OnIte
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(this);
+        String spinnerSelected = (String) spinner.getSelectedItem().toString();
 
-        Intent i = new Intent(DetailView.this,PaymentConfirmation.class);
+        //for location of theaters
+        Spinner spinner1 = findViewById(R.id.movieLocation);
+        ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(this,R.array.MovieLocation, android.R.layout.simple_spinner_dropdown_item);
+        adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner1.setAdapter(adapter1);
+        spinner1.setOnItemSelectedListener(this);
+
+
+
+
+       // Intent i = new Intent(DetailView.this,PaymentConfirmation.class);
         //storing time from button
         timeBtn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String buttonText = timeBtn1.getText().toString();
-                i.putExtra("Time1",buttonText);
+               // i.putExtra("Time1",buttonText);
             }
         });
 
@@ -86,6 +97,9 @@ public class DetailView extends YouTubeBaseActivity implements AdapterView.OnIte
             @Override
             public void onClick(View v) {
                 //TODO: update the database with the info and credentials entered by the user
+                Intent spin = new Intent(DetailView.this,PaymentConfirmation.class);
+                spin.putExtra("data_spinner_1",spinnerSelected);
+
                 switch_activities();
             }
         });
@@ -145,6 +159,8 @@ public class DetailView extends YouTubeBaseActivity implements AdapterView.OnIte
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
         String text = adapterView.getItemAtPosition(i).toString();
         Toast.makeText(adapterView.getContext(),text,Toast.LENGTH_SHORT).show();
+
+
 
     }
 

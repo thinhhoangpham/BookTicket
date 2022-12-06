@@ -20,4 +20,14 @@
         <item>9</item>
         <item>10</item>
     </string-array>
+
+    <string-array name="MovieLocation">
+        <item>Lubbock</item>
+        <item>Amarillo</item>
+        <item>Levelland</item>
+        <item>Plainview</item>
+        <item>Snyder</item>
+        <item>Abilene</item>
+    </string-array>
+
 </resources>
