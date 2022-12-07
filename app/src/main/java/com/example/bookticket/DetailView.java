@@ -41,7 +41,7 @@ public class DetailView extends YouTubeBaseActivity implements AdapterView.OnIte
     TextView tvTitle, tvOverview;
     RatingBar ratingBar;
     YouTubePlayerView youTubePlayerView;
-    private Button timeBtn1,timeBtn2,timeBtn3,NextBtn;
+    private Button NextBtn;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -53,10 +53,7 @@ public class DetailView extends YouTubeBaseActivity implements AdapterView.OnIte
         tvOverview = findViewById(R.id.tvOverview);
         ratingBar = findViewById(R.id.ratingBar);
         youTubePlayerView =  findViewById(R.id.player);
-        //Buttons for the time selection
-        timeBtn1 = findViewById(R.id.time1);
-        timeBtn2 = findViewById(R.id.time2);
-        timeBtn3 = findViewById(R.id.time3);
+
         NextBtn = findViewById(R.id.NextButton);
 
         //Movie Details
@@ -80,18 +77,26 @@ public class DetailView extends YouTubeBaseActivity implements AdapterView.OnIte
         spinner1.setAdapter(adapter1);
         spinner1.setOnItemSelectedListener(this);
 
+        //for time selection
+        Spinner spinner2 = findViewById(R.id.timeSelection);
+        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this,R.array.TimeSelection,android.R.layout.simple_spinner_dropdown_item);
+        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner2.setAdapter(adapter2);
+        spinner2.setOnItemSelectedListener(this);
 
 
 
+
+//old code
        // Intent i = new Intent(DetailView.this,PaymentConfirmation.class);
         //storing time from button
-        timeBtn1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String buttonText = timeBtn1.getText().toString();
-               // i.putExtra("Time1",buttonText);
-            }
-        });
+//        timeBtn1.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                String buttonText = timeBtn1.getText().toString();
+//               // i.putExtra("Time1",buttonText);
+//            }
+//        });
 
         NextBtn.setOnClickListener(new View.OnClickListener() {
             @Override

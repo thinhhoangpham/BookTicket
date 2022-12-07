@@ -30,4 +30,10 @@
         <item>Abilene</item>
     </string-array>
 
+    <string-array name="TimeSelection">
+        <item>6:00pm</item>
+        <item>8:00pm</item>
+        <item>10:00pm</item>
+    </string-array>
+
 </resources>

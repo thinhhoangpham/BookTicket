@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-        <com.google.android.youtube.player.YouTubePlayerView
+    <com.google.android.youtube.player.YouTubePlayerView
             android:id="@+id/player"
             android:layout_width="match_parent"
             android:layout_height="250dp" />
@@ -49,28 +49,21 @@
         android:textColor="#777"
         android:textSize="22sp" />
 
-    <Button
-        android:id="@+id/time1"
-        android:layout_width="150dp"
+    <Spinner
+        android:id="@+id/timeSelection"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="6:00pm" />
-
-    <Button
-        android:id="@+id/time2"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:text="8:00pm" />
-
-    <Button
-        android:id="@+id/time3"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:text="10:00pm" />
+        android:minHeight="48dp"
+        tools:ignore="SpeakableTextPresentCheck"
+        tools:layout_editor_absoluteX="600dp"
+        tools:layout_editor_absoluteY="20dp" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="80dp"
         android:layout_height="wrap_content"
+        android:layout_row="0"
+        android:layout_column="9"
         android:layout_marginEnd="8dp"
         android:gravity="center"
         android:maxLines="1"
@@ -91,6 +84,8 @@
         android:id="@+id/textView12"
         android:layout_width="131dp"
         android:layout_height="63dp"
+        android:layout_row="0"
+        android:layout_column="4"
         android:layout_marginEnd="8dp"
         android:gravity="center"
         android:maxLines="1"
@@ -109,6 +104,8 @@
         android:id="@+id/NextButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_row="1"
+        android:layout_column="3"
         android:text="Next" />
 
 </LinearLayout>
