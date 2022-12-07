@@ -15,8 +15,8 @@ public class PaymentConfirmation extends AppCompatActivity {
     private Button buttonConfirmationBtn;
     private Button buttonCancelBtn;
 
-    TextView tv,tv1,tv2,tv3,tv4, tv5,time,spinnerData;
-    String st,st1,st2,st3,st4, st5,st_time,st_spinner;
+    TextView tv,tv1,tv2,tv3,tv4, tv5,time,spinnerData, movie;
+    String st,st1,st2,st3,st4, st5,st_time,st_spinner, st_movie;
 
 
     @Override
@@ -48,8 +48,6 @@ public class PaymentConfirmation extends AppCompatActivity {
         tv5 = findViewById(R.id.displayCVV);
         st5 = getIntent().getExtras().getString("Value5",st5);
         tv5.setText(st5);
-
-
 
         time = findViewById(R.id.DisplayTicketInfo);
         st_time = getIntent().getExtras().getString("Time1",st_time);
