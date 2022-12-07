@@ -7,8 +7,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,6 +21,8 @@ import com.bumptech.glide.Glide;
 import com.example.bookticket.DetailView;
 import com.example.bookticket.R;
 import com.example.bookticket.models.Movie;
+import com.parse.ParseException;
+import com.parse.SaveCallback;
 
 import org.parceler.Parcels;
 
@@ -72,7 +76,7 @@ public class MovieAdapterEdit extends RecyclerView.Adapter<MovieAdapterEdit.View
         TextView tvTitle;
         TextView tvOverview;
         ImageView ivPoster;
-        Button btnDelete;
+        Switch swShow;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -80,7 +84,7 @@ public class MovieAdapterEdit extends RecyclerView.Adapter<MovieAdapterEdit.View
             tvOverview = itemView.findViewById(R.id.tvOverview);
             ivPoster = itemView.findViewById(R.id.ivPoster);
             container = itemView.findViewById(R.id.container);
-            btnDelete = itemView.findViewById(R.id.btnDelete);
+            swShow = itemView.findViewById(R.id.swShow);
         }
 
         // 1. register click listener on whole row
@@ -91,7 +95,6 @@ public class MovieAdapterEdit extends RecyclerView.Adapter<MovieAdapterEdit.View
             container.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
                     // 2. navigate to new activity
                     Toast.makeText(context, movie.getTitle(), Toast.LENGTH_SHORT).show();
                     Intent i = new Intent(context, DetailView.class);
@@ -103,14 +106,20 @@ public class MovieAdapterEdit extends RecyclerView.Adapter<MovieAdapterEdit.View
 
 
             });
-            btnDelete.setOnClickListener(new View.OnClickListener()
-            {
+            swShow.setChecked(movie.getShow());
+            swShow.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
-                public void onClick(View view) {
-                    movies.remove(movie);
-                    notifyDataSetChanged();
-                    Log.d("List size", "" + movies.size());
-
+                public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                    movie.setShow(b);
+                    movie.saveInBackground(new SaveCallback() {
+                        @Override
+                        public void done(ParseException e) {
+                            if (e != null) {
+                                Log.e("SAVE", "Save error ", e);
+                                return;
+                            }
+                        }
+                    });
                 }
             });
         }
