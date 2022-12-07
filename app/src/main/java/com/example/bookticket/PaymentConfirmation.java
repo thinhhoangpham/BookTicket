@@ -49,6 +49,7 @@ public class PaymentConfirmation extends AppCompatActivity {
         st5 = getIntent().getExtras().getString("Value5",st5);
         tv5.setText(st5);
 
+        
         time = findViewById(R.id.DisplayTicketInfo);
         st_time = getIntent().getExtras().getString("Time1",st_time);
         time.setText(st_time);
