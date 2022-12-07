@@ -7,27 +7,4 @@
     <!-- Paste BOTH strings as required -->
     <string name="back4app_app_id">y97Y6tESdh6S8HPh7sH2xhhSbRs9OHMiY6E0bIlV</string>
     <string name="back4app_client_key">JahNuZQ7hY2RmBHghO6ZilGnrlSSr0sF096P0lhE</string>
-
-    <string-array name="tickets">
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-        <item>5</item>
-        <item>6</item>
-        <item>7</item>
-        <item>8</item>
-        <item>9</item>
-        <item>10</item>
-    </string-array>
-
-    <string-array name="MovieLocation">
-        <item>Lubbock</item>
-        <item>Amarillo</item>
-        <item>Levelland</item>
-        <item>Plainview</item>
-        <item>Snyder</item>
-        <item>Abilene</item>
-    </string-array>
-
 </resources>
