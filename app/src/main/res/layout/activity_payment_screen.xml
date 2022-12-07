@@ -24,7 +24,7 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        android:text="First Name"
+        android:hint="First Name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.483"
         app:layout_constraintStart_toStartOf="parent"
@@ -38,7 +38,7 @@
         android:layout_marginTop="36dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Last Name"
+        android:hint="Last Name"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextPaymentFirstName"
         tools:ignore="TouchTargetSizeCheck" />
@@ -51,7 +51,7 @@
         android:ems="10"
         android:inputType="number"
         android:minHeight="48dp"
-        android:text="Card Number"
+        android:hint="Card Number"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextPaymentLastName" />
 
@@ -64,7 +64,7 @@
         android:ems="5"
         android:inputType="number"
         android:minHeight="48dp"
-        android:text="Month"
+        android:hint="Month"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/CardNumber" />
 
@@ -77,7 +77,7 @@
         android:ems="5"
         android:inputType="number"
         android:minHeight="48dp"
-        android:text="Year"
+        android:hint="Year"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/CardNumber" />
 
