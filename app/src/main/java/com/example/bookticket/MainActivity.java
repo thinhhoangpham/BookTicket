@@ -50,7 +50,6 @@ public class MainActivity extends AppCompatActivity {
                         }
                     }
                 });
-
                 /*
                 ParseUser.logInInBackground(username, password, (parseUser, e) -> {
                     if (parseUser != null) {
@@ -61,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
                  */
+
             }
         });
 
