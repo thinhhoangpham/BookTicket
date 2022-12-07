@@ -2,6 +2,7 @@ package com.example.bookticket;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -71,7 +72,7 @@ public class PaymentConfirmation extends AppCompatActivity {
                 //TODO: update the database with the info and credentials entered by the user
                 //switch_activities();
                 //will need to create a unique ticket number
-                finish();
+                switch_activities();
             }
         });
         buttonCancelBtn = findViewById(R.id.buttonCancelBtn);
@@ -88,5 +89,10 @@ public class PaymentConfirmation extends AppCompatActivity {
         //String time = Parcels.unwrap(getIntent().getParcelableExtra("time"));
         //buttonCancelBtn.setText(time);
 
+    }
+    private void switch_activities() {
+        Intent switchActivityIntent;
+        switchActivityIntent = new Intent(this, MovieCatalog.class);
+        startActivity(switchActivityIntent);
     }
 }
