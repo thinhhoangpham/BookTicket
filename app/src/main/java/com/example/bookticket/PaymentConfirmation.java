@@ -11,11 +11,14 @@ import com.example.bookticket.models.Movie;
 
 import org.parceler.Parcels;
 
+import java.util.Random;
+
+
 public class PaymentConfirmation extends AppCompatActivity {
     private Button buttonConfirmationBtn;
     private Button buttonCancelBtn;
 
-    TextView tv,tv1,tv2,tv3,tv4, tv5,time,spinnerData, movie;
+    TextView tv,tv1,tv2,tv3,tv4, tv5,time,spinnerData, movie, num;
     String st,st1,st2,st3,st4, st5,st_time,st_spinner, st_movie;
 
 
@@ -57,7 +60,9 @@ public class PaymentConfirmation extends AppCompatActivity {
         st_spinner = getIntent().getExtras().getString("data_spinner_1",st_spinner);
         spinnerData.setText(st_spinner);
 
-
+        num = findViewById(R.id.Movieticketnumber);
+        int randint = new Random().nextInt(1000000000);
+        num.setText(String.valueOf(randint));
 
         buttonConfirmationBtn = findViewById(R.id.buttonConfirmationBtn);
         buttonConfirmationBtn.setOnClickListener(new View.OnClickListener() {
